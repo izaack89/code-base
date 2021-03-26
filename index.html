@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Base</title><link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Code Base</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <header class="site-header">
-        <a href="#" class="brand">View Score</a>
-        <div id="Timer">Time: <span> 12</span></div>
+        <a href="#" class="linkClass">View Score</a>
+        <div id="Timer" class="timerClass">Time: <span> 12</span></div>
     </header>
-    <div id="app">
-    </div>
+    <main>
+        <section class="box">
+            <article>
+                <h2 id="title">Coding Quiz Challange</h2>
+                <div id="sectionDinamic">
+                    <p id="text">
+                        Try to answer the following code -related questions within the time limit
+                        Keep in mind that incorrect answers will penalize your score / time by ten seconds
+                    </p>
+                    <button>Start Quiz</button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>
+            &copy; 2021 German Ramirez.
+        </p>
+    </footer>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

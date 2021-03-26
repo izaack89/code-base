@@ -29,6 +29,10 @@ header {
   color: var(--white);
 }
 
+h2 {
+  font-size: 30px;
+}
+
 /* I use this to apply the follow properties to footer */
 footer {
   padding: 15px;
@@ -85,4 +89,34 @@ main {
 
 .colorOrange {
   color: var(--orange);
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.box article {
+  width: 500px;
+  height: 500px;
+  border: 2px solid #0f0f0f;
+}
+.box h2 {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.box p {
+  padding: 0 25px 15px 25px;
+  text-align: justify;
+  line-height: 25px;
+}
+
+.box button {
+  text-align: center;
+  align-items: center;
+  line-height: 25px;
 }
