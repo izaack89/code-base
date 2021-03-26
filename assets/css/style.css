@@ -1,5 +1,88 @@
+/* Here I create the variables that I will use in order to not repeat myself  */
+:root {
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --gray-light: #d6d6d6;
+  --black: #0f0f0f;
+  --green: #369e36;
+  --orange: #c98b3a;
+  --primary: #920707;
+  --font-family: "Roboto", sans-serif;
+}
+/* This select is used for apply the properties to all the page */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+}
+/* I use this to apply the follow properties to the body */
+body {
+  background-color: #f8fafc;
+}
+
+/* I use this to apply the follow properties to the header */
+header {
+  padding: 20px;
+  background-color: var(--white);
+  color: var(--white);
+}
+
+/* I use this to apply the follow properties to footer */
+footer {
+  padding: 15px;
+  clear: both;
+  text-align: center;
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+/* I use this to apply the font size to 20 for the footer footer */
+footer h2 {
+  font-size: 20px;
+}
+/* This is to set that the main tag will have a width of 100% so it will cover all the screen  */
+main {
+  width: 100%;
+}
+/* This class is to have a margin of 30px on the top in order to have some space between the menu and the body*/
+.row {
+  margin-top: 30px;
+}
+
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.linkClass {
+  color: var(--primary);
+  padding: 5px;
+  text-decoration: none;
+  border-bottom: 3px solid var(--primary);
+  padding-left: 15px;
+}
+
+/* I use to change the border to unset  of the links when is the hover effect  */
+.linkClass:hover {
+  border: unset;
+}
+
+.timerClass {
+  color: var(--primary);
+  padding: 5px;
+}
+
+.timerClass span {
+  font-size: 20px;
+}
+
+.colorGreen {
+  color: var(--green);
+}
+
+.colorOrange {
+  color: var(--orange);
 }
