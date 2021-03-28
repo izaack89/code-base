@@ -143,3 +143,7 @@ main {
 .greenButton:hover {
   background-color: var(--darkgreen);
 }
+
+#highScoresList {
+  margin-bottom: 15px;
+}

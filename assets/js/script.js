@@ -4,6 +4,7 @@ var titleDiv = document.querySelector("#title");
 var textP = document.querySelector("#text");
 var sectionElements = document.querySelector("#sectionDinamicElements");
 var viewScores = document.querySelector("#viewScores");
+var highScoresList = document.querySelector("#highScoresList");
 
 // Section where is defined the variables that I will use on the sysmte
 var secondsLeft = 100;
@@ -25,7 +26,7 @@ var pages = {
     },
     'highscores': {
         'title': 'Highscores',
-        'text': 'DSD',
+        'text': '',
         'elements':['button1','button2'],
         'button1': {
             'properties': {
@@ -100,7 +101,30 @@ function setPage(page) {
 
 }
 
-setPage('main');
+setPage('highscores');
+
+renderHighScores();
+
+// The following function renders items in a todo list as <li> elements
+function renderHighScores() {
+  // Clear todoList element and update todoCountSpan
+  todos = JSON.parse(localStorage.getItem("scoresAll"));
+  // Render a new li for each todo
+    console.log(todos)
+  for (var i = 0; i < todos.length; i++) {
+    var initial = todos[i]["inits"];
+    var score  = todos[i]["userScore"];
+    var li = document.createElement("li");
+    li.textContent = initial + "   --  "+score;
+    li.setAttribute("data-index", i);
+    highScoresList.appendChild(li);
+  }
+}
+
+function storeTodos() {
+  // Stringify and set key in localStorage to todos array
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 // DOing test on the localstorage
     var userData = {
@@ -108,5 +132,9 @@ setPage('main');
         userScore: "8"
     };
     historicalScores.push(userData);
-
+var userData = {
+        inits: "IR",
+        userScore: "9"
+    };
+    historicalScores.push(userData);
     localStorage.setItem("scoresAll", JSON.stringify(historicalScores));
