@@ -6,6 +6,7 @@
   --gray-light: #d6d6d6;
   --black: #0f0f0f;
   --green: #369e36;
+  --darkgreen: #1f571f;
   --orange: #c98b3a;
   --primary: #920707;
   --font-family: "Roboto", sans-serif;
@@ -119,4 +120,26 @@ main {
   text-align: center;
   align-items: center;
   line-height: 25px;
+}
+
+.elementsCenter {
+  align-items: center;
+  text-align: center;
+}
+
+/*This class is to set a style for the buttons  with the class greenButton */
+.greenButton {
+  background-color: var(--green);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+}
+/*Added the style for the 'hover' effect */
+.greenButton:hover {
+  background-color: var(--darkgreen);
 }
