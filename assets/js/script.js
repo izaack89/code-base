@@ -407,7 +407,7 @@ function cleanScores() {
 function init() {
     // I call the local Storage to bring all the scores 
     historicalScores=  JSON.parse(localStorage.getItem("scoresAll"));
-    setPage('startquiz');
+    setPage('main');
 }
 // I call the function to start on the main page
 init();
