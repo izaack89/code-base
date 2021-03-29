@@ -354,10 +354,18 @@ function nextQuestion(questionIndex, userAnswer) {
 function renderHighScores() {
   // Get the Scores from the local storage
     var rankNumber = 1;
+    var conditionPass = true;
     // Adding the class list-group
     elementList.setAttribute('class', 'list-group');
   // Render a new li for each scores that is inside of local storage
-    if (historicalScores.length > 0) {
+    if (historicalScores !== null) {
+        if (historicalScores.length <= 0) {
+            conditionPass = false;
+        }
+    } else {
+        conditionPass = false;
+    }
+    if (conditionPass ) {
         for (var i = 0; i < historicalScores.length; i++) {
             var initial = historicalScores[i]["inits"];
             var score = historicalScores[i]["userScore"];
@@ -415,7 +423,9 @@ function cleanScores() {
 // Init the Page to main
 function init() {
     // I call the local Storage to bring all the scores 
-    historicalScores=  JSON.parse(localStorage.getItem("scoresAll"));
+    if (localStorage.getItem("scoresAll") === null) {
+        historicalScores=  JSON.parse(localStorage.getItem("scoresAll"));
+    }
     setPage('main');
 }
 // I call the function to start on the main page
