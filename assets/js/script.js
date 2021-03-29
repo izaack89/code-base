@@ -4,15 +4,15 @@ var titleDiv = document.querySelector("#title");
 var textP = document.querySelector("#text");
 var sectionElements = document.querySelector("#sectionDinamicElements");
 var viewScores = document.querySelector("#viewScores");
-var highScoresList = document.querySelector("#highScoresList");
+var elementList = document.querySelector("#elementList");
+var verifyAnswer = document.querySelector("#verifyAnswer");
 
 // Section where is defined the variables that I will use on the sysmte
-var secondsLeft = 100;
+var secondsLeft = 0;
 var actualScore = 0;
 var currentQuestion = 0;
 var correctAnswer = "";
-var userAnswer = "";
-var historicalScores = [];
+var historicalScores=[];
 var currentQuiz;
 var userData = {
         inits: "",
@@ -29,7 +29,7 @@ var pages = {
                 'label': 'Start Quiz',
                 'type': 'button',
                 'class': 'greenButton',
-                'function':'setTime()'
+                'function':'startquiz()'
             }    
         }
     },
@@ -142,8 +142,8 @@ var quiz = [
     {
         title: "What is the meaning of NFL?",
         choice: {
-            a: "Non Football League",
-            b: "National Face League",
+            a: "Nice Football League",
+            b: "North Federal League",
             c: "National Football League",
         },
         answer : "c"    
@@ -179,12 +179,9 @@ var quiz = [
     },
 ]
 
-
-viewScores.addEventListener("click", function () {
-
-    setPage('highscores');
-    renderHighScores();
- });
+/* ****************  Start  Section of the timers Functions           **************** */
+ 
+// This function is the one that helps to set the timer and if reach the 0 it finish the game
 function setTime() {
 
   // Sets interval in variable
@@ -194,21 +191,54 @@ function setTime() {
     if(secondsLeft === 0 || secondsLeft < 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
-      console.log('End Game');
-      timerCountSpan.textContent = " ";
+        timerCountSpan.textContent = " ";
+        setPage('gameover');
     }
 
     secondsLeft--;
   }, 1000);
 }
+
+// This function help to display if the answer was correct or incorrect
+function displayResult(msg,classMsg) {
+    verifyAnswer.textContent = msg;
+    verifyAnswer.setAttribute("class", "answerResult "+classMsg);
+    secondsToDisplay = 2;
+    // Sets interval in variable
+    var timerIntervalDisplay = setInterval(function() {
+
+        if(secondsToDisplay=== 0 || secondsToDisplay < 0) {
+        // Stops execution of action at set interval
+        clearInterval(timerIntervalDisplay);
+            verifyAnswer.textContent = "";
+            verifyAnswer.setAttribute("class", "");
+        }
+
+        secondsToDisplay--;
+    }, 1000);
+}
+
+/* ****************   End  Section of the timers Functions           **************** */
+
+
+// Adding the listener to the view Score button
+viewScores.addEventListener("click", function () {
+
+    setPage('highscores');
+    renderHighScores();
+});
+
+// This function helps me to clean all the elements in order to be used 
 function cleanPage() {
     titleDiv.textContent = '';
     sectionElements.textContent = '';
     textP.textContent = '';
-    highScoresList.textContent = '';
-    highScoresList.setAttribute('class', '');
-
+    elementList.textContent = '';
+    elementList.setAttribute('class', '');
+    sectionDinamicElements.textContent = "";
 }
+
+// This function helps to set the page navigation and bring the information from the array defined before "pages"
 function setPage(page) {
     cleanPage();
     var currentPage = pages[page];
@@ -242,42 +272,73 @@ function setPage(page) {
 // This function will start the timer and it will display the quiz
 
 function startquiz() {
+    cleanPage();
     // this will create a random quiz everytime that starts
     currentQuiz = quiz.sort(function () { return 0.5 - Math.random() })
-    
+    // This will start the timer 
+    setTime();
     currentQuestion = 0;
     correctAnswer = "";
     userAnswer = "";
+    secondsLeft = 100;
+    actualScore = 0;
+
     createQuiz(currentQuestion);
 }
-
+// This function helps me to crete the quiz 
 function createQuiz(currentQuestion) {
-    
+    // I do some cleanup of the UL element in order to not have old questions or elements
+    elementList.textContent = "";
+    // I do a loop to check the answer that needs to display 
     for (var [keyQuestions, elementQuestions] of Object.entries(currentQuiz)) {
         if (currentQuestion == keyQuestions) {
+            // I display the question and I save the correct answer that will help to verify later
             textP.textContent = elementQuestions['title'];
             correctAnswer = elementQuestions['answer'];
+            // Here I create a loop to display the options 
             for (var [keyQuestion, elementQuestion] of Object.entries(elementQuestions['choice'])) {
-                 var li = document.createElement("li");
+                // I create a li element
+                var li = document.createElement("li");
+                // I create a button element that will contain the choice for the answer 
                 var button = document.createElement("button");
-                button.setAttribute("onClick", "nextQuestion("+currentQuestion+")");
+                // I set an attribute to the button, and is to set a function on the click event , with this will help me to check the answer and to move to the next question
+                button.setAttribute("onClick", "nextQuestion("+currentQuestion+",'"+keyQuestion+"')");
+                // I add a class to the button
                 button.setAttribute('class', 'questions');
+                // I set the text
                 button.textContent = elementQuestion;
+                // I append the button to the li element
                 li.append(button);
-                highScoresList.append(li);
-                console.log(elementQuestion,correctAnswer)
+                // I append the li element to the UL 
+                elementList.append(li);
             }
-            // var li = document.createElement("li");
-            // li.setAttribute("onClick", "nextQuestion("+currentQuestion+")");
-            // var button = document.createElement("button");
-            // var span = document.createElement("span");
-            // span.setAttribute('class', 'badge');
-            // span.textContent = score;
-            // li.append(button);
-            // highScoresList.append(li);
         }
-        console.log(elementQuestions,correctAnswer)
     }
+    // If I reach to the end of the question I set the clock to 0 cause that inside of the timer already have the redirect function to game over page
+    if (currentQuestion == currentQuiz.length) {        
+        secondsLeft = 0;
+    }
+}
+function nextQuestion(questionIndex, userAnswer) {
+    var msg = "Correct!";
+    var msgClass = "good";
+    // I compare the answer of the user with the correct answer 
+    if (userAnswer === correctAnswer) {
+        actualScore++;
+    } else {
+        //Change the text and the class
+        msg = "Wrong!";
+        msgClass = "wrong";
+        // I penalize the user if they answer incorrectly
+        secondsLeft -= 10;
+    }
+
+    // I move forward with the next question
+    questionIndex++;
+    if (questionIndex != currentQuiz.length) {               
+        displayResult(msg, msgClass);
+    }
+    createQuiz(questionIndex)
 }
 
 // The following function renders scores on list as <li> elements
@@ -285,58 +346,68 @@ function renderHighScores() {
   // Get the Scores from the local storage
     var rankNumber = 1;
     // Adding the class list-group
-    highScoresList.setAttribute('class', 'list-group');
+    elementList.setAttribute('class', 'list-group');
   // Render a new li for each scores that is inside of local storage
-    console.log(historicalScores.length);
     if (historicalScores.length > 0) {
         for (var i = 0; i < historicalScores.length; i++) {
             var initial = historicalScores[i]["inits"];
             var score = historicalScores[i]["userScore"];
+            // create the element li that will display the information 
             var li = document.createElement("li");
             li.textContent = rankNumber + ".  " + initial;
-            li.setAttribute("data-index", i);
+            // I create the span element to put the score on an badge t
             var span = document.createElement("span");
             span.setAttribute('class', 'badge');
             span.textContent = score;
+            // I append the span into the element li
             li.append(span);
-            highScoresList.append(li);
+            // I append the li elemento into the UL to display the list of users with their scores
+            elementList.append(li);
+            // I use this variable to set a number cause on the li I deleted that to have a different look 
             rankNumber++;
         }
     } else {
-        
+        // I use this to display that the are no scores 
             var li = document.createElement("li");
             li.textContent = " No Scores ";
-            highScoresList.append(li);
+            elementList.append(li);
     }
 }
 // Function that save the score of the person that resolve the quiz
 function storeScores() {
-
+    // I get what the user wrotes on the input that I created 
     userData.inits = document.getElementById('initialUser').value;
+    // I set the score of the user
     userData.userScore = actualScore;
     historicalScores.push(userData);
+    // I cleant the object that I use to insert into the historicalScores varaible
+    userData = {
+            inits: "",
+            userScore: ""
+    };
+    // I save the information on the localstorage
     localStorage.setItem("scoresAll", JSON.stringify(historicalScores));
-    highScoresList.textContent = '';
+    // I do some cleaning 
+    elementList.textContent = '';
+    // Set the page to highscore in order to display the information of previous users 
     setPage('highscores');
+    //I render the Scores 
     renderHighScores();
 }
 // This function helps to clear the Highscores
 function cleanScores() {
     historicalScores = [];
     localStorage.setItem("scoresAll", '');
-    highScoresList.textContent = '';
+    elementList.textContent = '';
     renderHighScores();
 }
 
     
-
-
 // Init the Page to main
 function init() {
-    
-    localStorage.setItem("scoresAll", JSON.stringify(historicalScores));
+    // I call the local Storage to bring all the scores 
     historicalScores=  JSON.parse(localStorage.getItem("scoresAll"));
     setPage('startquiz');
 }
-
+// I call the function to start on the main page
 init();
