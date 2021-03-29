@@ -12,14 +12,15 @@ The quiz have 4 Views all created inside a javascript variable
 
 2.  Quiz.- The quiz is defined on the code inside of a variable, what I do is to suffle the questions in order to not have the same order when the quiz is activated
 
-        1. Timer.- I used to show the total time that the person have to answer the quiz and if the answer is correct the timer decrease by 10 seconds. Once the timer is 0 the Game is Over
-        2. Validation .- Here I can validate if the answer is correct according to the question
-        3. Score count.- Once the validation is running I can count the possitive answers
-
-    ![Quiz View Main](./assets/readmeFiles/quiz_view_main.png)
     ![Quiz View](./assets/readmeFiles/quiz_view1.png)
+
+    1. Timer.- I used to show the total time that the person have to answer the quiz and if the answer is correct the timer decrease by 10 seconds. Once the timer is 0 the Game is Over ![Quiz View Main](./assets/readmeFiles/quiz_view_main.png)
+
+    2. Validation .- Here I can validate if the answer is correct according to the question
+
     ![Quiz View Validation Correct](./assets/readmeFiles/quiz_view2.png)
-    ![Quiz View Validation Wrong](./assets/readmeFiles/quiz_view3.png)
+
+    ![Quiz View Validation Wrong](./assets/readmeFiles/quiz_view3.png) 3. Score count.- Once the validation is running I can count the possitive answers
 
 3.  Game Over.- On this view the user see the score and also is able to set their initials to save that on the localstorage
 
@@ -27,8 +28,8 @@ The quiz have 4 Views all created inside a javascript variable
 
 4. HighScores.- On this section I display the information that is storage on the localstorage, I also can delete the infomration that are there by clicking the button "Delete Highscores"
 
-![HighScores View](./assets/readmeFiles/scores_view_main.png)
 ![HighScores View](./assets/readmeFiles/scores_view2.png)
+![HighScores View](./assets/readmeFiles/scores_view_main.png)
 
 5. [Code Base GitHub](https://github.com/izaack89/code-base)
 
