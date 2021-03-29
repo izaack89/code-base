@@ -136,34 +136,32 @@ var quiz = [
         answer : "d"    
     },
     {
-        title: "How many Super Bowls are there in total?",
+        title: "What is the meaning of NFL?",
         choice: {
-            a: "50",
-            b: "44",
-            c: "65",
-            d: "55",
+            a: "Non Football League",
+            b: "National Face League",
+            c: "National Football League",
         },
-        answer : "d"    
+        answer : "c"    
     },
     {
-        title: "How many Super Bowls are there in total?",
+        title: "Since when the SuperBowl  has served as the final game of every NFL season?",
         choice: {
-            a: "50",
-            b: "44",
-            c: "65",
-            d: "55",
+            a: "1950",
+            b: "2004",
+            c: "1966",
+            d: "1955",
         },
-        answer : "d"    
+        answer : "c"    
     },
     {
-        title: "How many Super Bowls are there in total?",
+        title: "Who has won the most Super Bowls?",
         choice: {
-            a: "50",
-            b: "44",
-            c: "65",
-            d: "55",
+            a: "New England",
+            b: "Dallas",
+            c: "San Francisco",
         },
-        answer : "d"    
+        answer : "a"    
     },
     {
         title: "Who wins the Super Bowl 2021?",
