@@ -57,7 +57,7 @@ var pages = {
     },
     'gameover': {
         'title': 'All done',
-        'text': 'Your finael score is',
+        'text': 'Your final score is',
         'elements':['input1','button1'],
         'button1': {
             'properties': {
