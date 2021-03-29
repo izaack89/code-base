@@ -386,7 +386,7 @@ function renderHighScores() {
     } else {
         // I use this to display that the are no scores 
             var li = document.createElement("li");
-            li.textContent = " No Scores ";
+            li.textContent = " No Data ";
             elementList.append(li);
     }
 }
@@ -423,7 +423,7 @@ function cleanScores() {
 // Init the Page to main
 function init() {
     // I call the local Storage to bring all the scores 
-    if (localStorage.getItem("scoresAll") === null) {
+    if (localStorage.getItem("scoresAll") !== null) {
         historicalScores=  JSON.parse(localStorage.getItem("scoresAll"));
     }
     setPage('main');
