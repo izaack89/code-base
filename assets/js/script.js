@@ -9,7 +9,11 @@ var highScoresList = document.querySelector("#highScoresList");
 // Section where is defined the variables that I will use on the sysmte
 var secondsLeft = 100;
 var actualScore = 0;
+var currentQuestion = 0;
+var correctAnswer = "";
+var userAnswer = "";
 var historicalScores = [];
+var currentQuiz;
 var userData = {
         inits: "",
         userScore: ""
@@ -89,7 +93,7 @@ var quiz = [
         answer : "a"    
     },
     {
-        title: "How many teams plays on the NFL:",
+        title: "How many teams are on the NFL?",
         choice: {
             a: "52",
             b: "40",
@@ -238,7 +242,42 @@ function setPage(page) {
 // This function will start the timer and it will display the quiz
 
 function startquiz() {
+    // this will create a random quiz everytime that starts
+    currentQuiz = quiz.sort(function () { return 0.5 - Math.random() })
     
+    currentQuestion = 0;
+    correctAnswer = "";
+    userAnswer = "";
+    createQuiz(currentQuestion);
+}
+
+function createQuiz(currentQuestion) {
+    
+    for (var [keyQuestions, elementQuestions] of Object.entries(currentQuiz)) {
+        if (currentQuestion == keyQuestions) {
+            textP.textContent = elementQuestions['title'];
+            correctAnswer = elementQuestions['answer'];
+            for (var [keyQuestion, elementQuestion] of Object.entries(elementQuestions['choice'])) {
+                 var li = document.createElement("li");
+                var button = document.createElement("button");
+                button.setAttribute("onClick", "nextQuestion("+currentQuestion+")");
+                button.setAttribute('class', 'questions');
+                button.textContent = elementQuestion;
+                li.append(button);
+                highScoresList.append(li);
+                console.log(elementQuestion,correctAnswer)
+            }
+            // var li = document.createElement("li");
+            // li.setAttribute("onClick", "nextQuestion("+currentQuestion+")");
+            // var button = document.createElement("button");
+            // var span = document.createElement("span");
+            // span.setAttribute('class', 'badge');
+            // span.textContent = score;
+            // li.append(button);
+            // highScoresList.append(li);
+        }
+        console.log(elementQuestions,correctAnswer)
+    }
 }
 
 // The following function renders scores on list as <li> elements

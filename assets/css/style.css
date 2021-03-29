@@ -168,6 +168,18 @@ input {
   background-color: var(--darkpurple);
 }
 
+/*This class is to set more details properties for the buttons that have the class questions */
+.questions {
+  cursor: pointer;
+}
+
+/*Added the style for the 'hover' effect for the questions class */
+.questions:hover {
+  cursor: pointer;
+  background-color: var(--gray-dark);
+  color: var(--white);
+}
+
 /* This class is for the ul element  */
 .list-group {
   list-style: none;
