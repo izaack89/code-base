@@ -1,4 +1,5 @@
 // Section where is defined the DOM elements that I will use 
+var timerDiv = document.querySelector("#timerDiv");
 var timerCountSpan = document.querySelector("#timer_count");
 var titleDiv = document.querySelector("#title");
 var textP = document.querySelector("#text");
@@ -22,7 +23,7 @@ var userData = {
 var pages = {
     'main': {
         'title': 'Coding Quiz Challange',
-        'text': 'Try to answer the following code -related questions within the time limit Keep in mind that incorrect answers will penalize your score / time by ten seconds',
+        'text': 'Try to answer the following questions from the NFL within the time limit. Keep in mind that incorrect answers will penalize your score / time by ten seconds',
         'elements':['button1'],
         'button1': {
             'properties': {
@@ -229,8 +230,10 @@ viewScores.addEventListener("click", function () {
 });
 
 // This function helps me to clean all the elements in order to be used 
-function cleanPage() {
-    titleDiv.textContent = '';
+function cleanPage(deleteTitle = true) {
+    if (deleteTitle) {
+        titleDiv.textContent = '';    
+    }    
     sectionElements.textContent = '';
     textP.textContent = '';
     elementList.textContent = '';
@@ -261,18 +264,24 @@ function setPage(page) {
             sectionElements.append(newDiv);
         }
     }
+
     if (page==="gameover") {        
         textP.textContent += " " +actualScore+"."
-    }else if (page==="startquiz") {        
-        startquiz();
     }
-
+    if (page === "main") {
+        viewScores.setAttribute("style", "visibility:visible");
+    } else {
+        viewScores.setAttribute("style", "visibility:hidden");
+    }
+    
 }
 
 // This function will start the timer and it will display the quiz
 
 function startquiz() {
     cleanPage();
+    viewScores.setAttribute("style", "visibility:hidden");
+    titleDiv.textContent = pages['startquiz']['title'];
     // this will create a random quiz everytime that starts
     currentQuiz = quiz.sort(function () { return 0.5 - Math.random() })
     // This will start the timer 
