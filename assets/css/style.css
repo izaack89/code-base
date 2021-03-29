@@ -10,6 +10,8 @@
   --orange: #c98b3a;
   --primary: #920707;
   --font-family: "Roboto", sans-serif;
+  --purple: #5e369e;
+  --darkpurple: #3e2468;
 }
 /* This select is used for apply the properties to all the page */
 * {
@@ -34,6 +36,18 @@ h2 {
   font-size: 30px;
 }
 
+/* I set the global properties from the buttons so I can reuse this elements an avoid duplicate css code */
+button {
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
 /* I use this to apply the follow properties to footer */
 footer {
   padding: 15px;
@@ -50,6 +64,13 @@ footer h2 {
 /* This is to set that the main tag will have a width of 100% so it will cover all the screen  */
 main {
   width: 100%;
+}
+/* Adding style to the input*/
+input {
+  border-radius: 20px;
+  height: 41px;
+  width: 333px;
+  padding: 10px;
 }
 /* This class is to have a margin of 30px on the top in order to have some space between the menu and the body*/
 .row {
@@ -127,23 +148,60 @@ main {
   text-align: center;
 }
 
-/*This class is to set a style for the buttons  with the class greenButton */
+/*This class is to set more details properties for the buttons that have the class greenButton */
 .greenButton {
   background-color: var(--green);
-  border: none;
   color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px;
 }
-/*Added the style for the 'hover' effect */
+/*Added the style for the 'hover' effect for the greenButton */
 .greenButton:hover {
   background-color: var(--darkgreen);
 }
 
+/*This class is to set more details properties for the buttons that have the class purpleButton */
+.purpleButton {
+  background-color: var(--purple);
+  color: white;
+}
+/*Added the style for the 'hover' effect for the purpleButton */
+.purpleButton:hover {
+  background-color: var(--darkpurple);
+}
+
+/* This class is for the ul element  */
+.list-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+/* This css what it does that on the first element of the list remove the border top */
+.list-group li:first-child {
+  border-top: 0;
+}
+/* This class if for the li elements of the score list  */
+.list-group li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 0.5em;
+}
+/*  This class is for  the score on the "View Scores" what it does to close the number on a circule  */
+.badge {
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: bold;
+  font-size: 80%;
+  border-radius: 10em;
+  min-width: 1.5em;
+  padding: 0.25em;
+  text-align: center;
+}
+
 #highScoresList {
   margin-bottom: 15px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
