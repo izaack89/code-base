@@ -23,7 +23,7 @@ var userData = {
 var pages = {
     'main': {
         'title': 'Coding Quiz Challange',
-        'text': 'Try to answer the following questions from the NFL within the time limit. Keep in mind that incorrect answers will penalize your score / time by ten seconds',
+        'text': 'Try to answer the following questions from Javascript within the time limit. Keep in mind that incorrect answers will penalize your score / time by ten seconds',
         'elements':['button1'],
         'button1': {
             'properties': {
@@ -85,98 +85,99 @@ var pages = {
 }
 var quiz = [
     {
-        title: "How are the NFL conferences divided?",
+        title: "Arrays in Javascript can be used to store",
         choice: {
-            a: "AFC, NFC",
-            b: "LFC, NFC",
-            c: "AFC,UFC",
-        },
-        answer : "a"    
-    },
-    {
-        title: "How many teams are on the NFL?",
-        choice: {
-            a: "52",
-            b: "40",
-            c: "32",
-        },
-        answer : "c"    
-    },
-    {
-        title: "What team never won a Superbowl?",
-        choice: {
-            a: "NE Patriots",
-            b: "KC Chiefs",
-            c: "Dallas Cowboys",
-            d: "Minnesota Vikings",
+            a: "numbers and strings",
+            b: "Other arrays",
+            c: "Booleans",
+            d: "All of the above",
         },
         answer : "d"    
     },
     {
-        title: "What are the 4 NFL divisions?",
+        title: "Commonly used data type DO NOT include",
         choice: {
-            a: "Up, Down, Left, and Right",
-            b: "East, North, South, and West",
-            c: "AFC 1,AFC 2,NFC 1,NFC 2",
+            a: "strings",
+            b: "booleans",
+            c: "alerts",
+            d: "numbers",
+        },
+        answer : "c"    
+    },
+    {
+        title: "The condition in an if/else statementis enclosed within _______",
+        choice: {
+            a: "quotes",
+            b: "curly brackets",
+            c: "parentheses",
+            d: "square brackets",
+        },
+        answer : "c"    
+    },
+    {
+        title: "String value must be enclosed within _____ when being assigned to variable",
+        choice: {
+            a: "quotes",
+            b: "curly brackets",
+            c: "parentheses",
+            d: "square brackets",
+        },
+        answer : "a"    
+    },
+    {
+        title: "A very useful tool used during development and debugging for printing content to the debugger is: ",
+        choice: {
+            a: "Javascript",
+            b: "terminal/bash",
+            c: "for loops",
+            d: "console.log",
+        },
+        answer : "d"    
+    },
+    {
+        title: "How does a WHILE loop start? ",
+        choice: {
+            a: "while(i<=10)",
+            b: "while i = 1 to 10",
+            c: "while (i>=10;i++",
+        },
+        answer : "a"    
+    },
+    {
+        title: "Inside which HTML element do we put the JavaScript?",
+        choice: {
+            a: "<javascript>",
+            b: "<js>",
+            c: "<script>",
+            d: "<scripting>",
+        },
+        answer : "c"    
+    },
+    {
+        title: "Where is the correct place to insert a JavaScript?",
+        choice: {
+            a: "the <head> section",
+            b: "Both the <head> and the <body> section are correct ",
+            c: "the <body> section",
         },
         answer : "b"    
     },
     {
-        title: "What Super Bowl are we on 2020-2021? ",
+        title: "What is the correct syntax for referring to an external script called 'xxx.js'?",
         choice: {
-            a: "LV",
-            b: "LIX",
-            c: "L",
-        },
-        answer : "a"    
-    },
-    {
-        title: "How many Super Bowls are there in total?",
-        choice: {
-            a: "50",
-            b: "44",
-            c: "65",
-            d: "55",
-        },
-        answer : "d"    
-    },
-    {
-        title: "What is the meaning of NFL?",
-        choice: {
-            a: "Nice Football League",
-            b: "North Federal League",
-            c: "National Football League",
+            a: "<script href='xxx.js' >",
+            b: "<script name='xxx.js' >",
+            c: "<script src='xxx.js' >",
         },
         answer : "c"    
     },
     {
-        title: "Since when the SuperBowl  has served as the final game of every NFL season?",
+        title: "The external JavaScript file must contain the <script> tag.",
         choice: {
-            a: "1950",
-            b: "2004",
-            c: "1966",
-            d: "1955",
+            a: "true",
+            b: "false",
         },
-        answer : "c"    
-    },
-    {
-        title: "Who has won the most Super Bowls?",
-        choice: {
-            a: "New England",
-            b: "Dallas",
-            c: "San Francisco",
-        },
-        answer : "a"    
-    },
-    {
-        title: "Who wins the Super Bowl 2021?",
-        choice: {
-            a: "Tampa Bay",
-            b: "Kansas City",
-            c: "Dallas",
-            d: "South Carolina",
-        },
-        answer : "a"    
+        answer : "b"    
     },
 ]
 
