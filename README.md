@@ -16,13 +16,13 @@ The quiz have 4 Views all created inside a javascript variable and all are displ
 
     ![Quiz View](./assets/readmeFiles/quiz_view1.png)
 
-    1.⏱ Timer.- I used to show the total time that the person have to answer the quiz and if the answer is correct the timer decrease by 10 seconds. Once the timer is 0 the Game is Over ![Quiz View Main](./assets/readmeFiles/quiz_view_main.png)
+    2.1.⏱ Timer.- I used to show the total time that the person have to answer the quiz and if the answer is correct the timer decrease by 10 seconds. Once the timer is 0 the Game is Over ![Quiz View Main](./assets/readmeFiles/quiz_view_main.png)
 
-    2.✅,❌ Validation .- Here I can validate if the answer is correct according to the question
+    2.2.✅,❌ Validation .- Here I can validate if the answer is correct according to the question
 
     ![Quiz View Validation Correct](./assets/readmeFiles/quiz_view2.png)
 
-    ![Quiz View Validation Wrong](./assets/readmeFiles/quiz_view3.png) 3. Score count.- Once the validation is running I can count the possitive answers
+    ![Quiz View Validation Wrong](./assets/readmeFiles/quiz_view3.png) 2.3. Score count.- I can save the score of the quiz while is ongoing, once is finished the quiz or the time runs out I can display the total score
 
 3.  Game Over View.- On this view the user see the score and also is able to set their initials to save that on the localstorage
 
