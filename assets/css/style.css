@@ -236,4 +236,14 @@ input {
   button {
     font-size: 12px;
   }
+  .questions {
+    cursor: pointer;
+    background-color: var(--gray-dark);
+    color: var(--white);
+  }
+
+  /* Added the style for the 'hover' effect for the questions class */
+  .questions:hover {
+    cursor: pointer;
+  }
 }
