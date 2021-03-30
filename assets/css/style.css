@@ -105,13 +105,7 @@ input {
   font-size: 20px;
 }
 
-.colorGreen {
-  color: var(--green);
-}
-
-.colorOrange {
-  color: var(--orange);
-}
+/* This is the container of all */
 .box {
   display: flex;
   align-items: center;
@@ -119,7 +113,7 @@ input {
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
+/* Here I defined some elements that will be changing dinamically */
 .box article {
   width: 500px;
   height: 500px;
@@ -235,5 +229,11 @@ input {
 @media (max-width: 690px) {
   .box article {
     width: 300px;
+  }
+  input {
+    width: 250px;
+  }
+  button {
+    font-size: 12px;
   }
 }
