@@ -78,18 +78,19 @@ var pages = {
         }
     },
     'startquiz': {
-        'title': 'NFL Quiz',
+        'title': 'Javascript Quiz',
         'text': '',
         'elements':[],
     },
 }
+/*  ****************    Quiz Section **************** */
 var quiz = [
     {
         title: "Arrays in Javascript can be used to store",
         choice: {
             a: "numbers and strings",
             b: "Other arrays",
-            c: "Booleans",
+            c: "booleans",
             d: "All of the above",
         },
         answer : "d"    
@@ -105,7 +106,7 @@ var quiz = [
         answer : "c"    
     },
     {
-        title: "The condition in an if/else statementis enclosed within _______",
+        title: "The condition in an if/else statements enclosed within _______",
         choice: {
             a: "quotes",
             b: "curly brackets",
@@ -156,9 +157,9 @@ var quiz = [
     {
         title: "Where is the correct place to insert a JavaScript?",
         choice: {
-            a: "the <head> section",
+            a: "The <head> section",
             b: "Both the <head> and the <body> section are correct ",
-            c: "the <body> section",
+            c: "The <body> section",
         },
         answer : "b"    
     },
@@ -174,8 +175,8 @@ var quiz = [
     {
         title: "The external JavaScript file must contain the <script> tag.",
         choice: {
-            a: "true",
-            b: "false",
+            a: "True",
+            b: "False",
         },
         answer : "b"    
     },
@@ -266,7 +267,8 @@ function setPage(page) {
         }
     }
 
-    if (page==="gameover") {        
+    if (page === "gameover") {
+        // I add the score to the text
         textP.textContent += " " +actualScore+"."
     }
     if (page === "main") {
