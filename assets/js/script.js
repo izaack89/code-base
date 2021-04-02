@@ -201,6 +201,7 @@ function setTime() {
           clearInterval(timerInterval);
           timerCountSpan.textContent = " ";
        } else if (isLastQ) {
+          timerCountSpan.textContent = " ";
           clearInterval(timerInterval);
        }
 
@@ -335,7 +336,6 @@ function createQuiz(currentQuestion) {
     // If I reach to the end of the question I set the main page to gameover view and I reset the time, also I cahnge a varaible that I use to check if is the last question
     if (currentQuestion == currentQuiz.length) {        
         isLastQ = true;
-        timerCountSpan.textContent = " ";
         setPage('gameover');
     }
 }
