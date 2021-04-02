@@ -15,6 +15,7 @@ var currentQuestion = 0;
 var correctAnswer = "";
 var historicalScores=[];
 var currentQuiz;
+var isLastQ = false;
 var userData = {
         inits: "",
         userScore: ""
@@ -191,12 +192,17 @@ function setTime() {
   var timerInterval = setInterval(function() {
     timerCountSpan.textContent = secondsLeft ;
 
-    if(secondsLeft === 0 || secondsLeft < 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-        timerCountSpan.textContent = " ";
-        setPage('gameover');
-    }
+      if ((secondsLeft === 0 || secondsLeft < 0) && !isLastQ) {
+          // Stops execution of action at set interval
+          clearInterval(timerInterval);
+          timerCountSpan.textContent = " ";
+          setPage('gameover');
+      } else if ((secondsLeft === 0 || secondsLeft < 0) && isLastQ) {
+          clearInterval(timerInterval);
+          timerCountSpan.textContent = " ";
+       } else if (isLastQ) {
+          clearInterval(timerInterval);
+       }
 
     secondsLeft--;
   }, 1000);
@@ -326,9 +332,11 @@ function createQuiz(currentQuestion) {
             }
         }
     }
-    // If I reach to the end of the question I set the clock to 0 cause that inside of the timer already have the redirect function to game over page
+    // If I reach to the end of the question I set the main page to gameover view and I reset the time, also I cahnge a varaible that I use to check if is the last question
     if (currentQuestion == currentQuiz.length) {        
-        secondsLeft = 0;
+        isLastQ = true;
+        timerCountSpan.textContent = " ";
+        setPage('gameover');
     }
 }
 function nextQuestion(questionIndex, userAnswer) {
