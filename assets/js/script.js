@@ -190,7 +190,6 @@ function setTime() {
 
   // Sets interval in variable
   var timerInterval = setInterval(function() {
-    timerCountSpan.textContent = secondsLeft ;
 
       if ((secondsLeft === 0 || secondsLeft < 0) && !isLastQ) {
           // Stops execution of action at set interval
@@ -205,6 +204,7 @@ function setTime() {
           clearInterval(timerInterval);
        }
 
+    timerCountSpan.textContent = secondsLeft ;
     secondsLeft--;
   }, 1000);
 }
